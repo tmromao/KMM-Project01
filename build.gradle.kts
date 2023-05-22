@@ -1,9 +1,16 @@
 plugins {
     //trick: for the same plugin versions in all sub-modules
-    id("com.android.application").version(Versions.pluginAndroidApp).apply(false)
-    id("com.android.library").version(Versions.pluginAndroidLib).apply(false)
-    kotlin("android").version(Versions.kotlin).apply(false)
-    kotlin("multiplatform").version(Versions.kotlin).apply(false)
+    id(Plugins.androidApplication).version(Versions.pluginAndroidApp).apply(false)
+    id(Plugins.androidLibrary).version(Versions.pluginAndroidLib).apply(false)
+    kotlin(Plugins.android).version(Versions.kotlin).apply(false)
+    kotlin(Plugins.multiplatform).version(Versions.kotlin).apply(false)
+}
+
+buildscript {
+    dependencies {
+        classpath(Gradle.pluginSqlDelight)
+        classpath(Jetbrains.serializationKotlin)
+    }
 }
 
 tasks.register("clean", Delete::class) {

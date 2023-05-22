@@ -1,6 +1,8 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    kotlin(Plugins.multiplatform)
+    id(Plugins.androidLibrary)
+    id(SqlDelight.pluginId)
+    kotlin(Jetbrains.serializationPluginId)
 }
 
 kotlin {
@@ -26,17 +28,26 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(Kotlinx.coroutinesCore)
+                implementation(SqlDelight.driverCommon)
+                implementation(Jetbrains.serializationKotlinCore)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(Kotlinx.coroutinesTest)
+
+                // CORE TEST LIBS
+                implementation(Test.kotlinCommon)
+                implementation(Test.kotlinAnnotation)
+ //               implementation(Mockk.core)
+   //             implementation(Mockk.common)
             }
         }
         val androidMain by getting {
             dependencies {
                 api(Androidx.viewModelLifecycle)
+                implementation(SqlDelight.driverAndroid)
             }
         }
         //val androidUnitTest by getting
@@ -48,6 +59,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies{
+                implementation(SqlDelight.driverIos)
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -67,5 +81,12 @@ android {
     defaultConfig {
         minSdk = Playstore.minSdk
         targetSdk = Playstore.targetSdk
+    }
+}
+
+// Configurar SQLDelight no build.gradle.kts do projeto
+sqldelight {
+    database(SqlDelight.databaseScheme) {
+        packageName = SqlDelight.databasePackage
     }
 }

@@ -8,6 +8,13 @@ object Playstore {
     const val versionName = "1.0.0" // Increment on every release. Suggested approach https://semver.org/
 }
 
+object Plugins {
+    const val android = "android"
+    const val androidLibrary = "com.android.library"
+    const val androidApplication = "com.android.application"
+    const val kotlin = "kotlin"
+    const val multiplatform = "multiplatform"
+}
 /** ANDROID APP VERSIONS */
 object Versions {
     const val compose = "1.1.1"
@@ -16,8 +23,9 @@ object Versions {
     const val composeThemeAdapter = "1.1.5"
     const val androidxCore = "1.9.0"
     const val lifecycleRuntime = "2.5.1"
-    const val jUnit = "4.13.2"
-    const val extjUnit = "1.1.3"
+    const val junit = "4.13.2"
+    const val extJunit = "1.1.3"
+    const val instrumentedTestCompose = "1.2.1"
     const val testManifest = "1.1.0-beta01"
     const val espressoCore = "3.4.0"
     const val uiUnitTest = "1.1.0-beta01"
@@ -26,7 +34,23 @@ object Versions {
     const val pluginAndroidApp = "7.4.2"
     const val kotlinx = "1.6.4"
     const val viewModel = "2.5.1"
+    const val mockkCommon = "1.12.5"
+    const val mockkCore = "1.13.2"
+    const val sqlDelight = "1.5.3"
+    const val kotlinSerializationCore = "1.3.2"
+    const val buildTools = "7.4.2"
+}
 
+object Jetbrains {
+const val serializationPluginId = "plugin.serialization"
+    const val serializationKotlin = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
+    const val serializationKotlinCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerializationCore}"
+}
+
+object Gradle {
+    const val pluginSqlDelight = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"
+    const val pluginKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val buildTools = "com.android.tools.build:gradle:${Versions.buildTools}"
 }
 
 /**
@@ -58,5 +82,47 @@ object Compose {
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"
 
+}
 
+/**
+ * UNIT TEST
+ *  How to add to build.gradle(:app)
+ *  Ex: Inside dependencies {...} add: testImplementation Test.jUnit
+ *  */
+
+object Test{
+    const val junit = "junit:junit:${Versions.junit}"
+    const val kotlinCommon = "org.jetbrains.kotlin:kotlin-test-common:${Versions.kotlin}"
+    const val kotlinAnnotation = "org.jetbrains.kotlin:kotlin-test-annotations-common:${Versions.kotlin}"
+    const val instrumentedTestCompose = "androidx.compose.ui:ui-test-junit4:${Versions.instrumentedTestCompose}"
+
+    // Instrumented test common
+    const val instrumentedCommonJunit = "androidx.test.ext:junit:${Versions.extJunit}"
+    const val instrumentedCommonJunitKtx = "androidx.test.ext:junit-ktx:${Versions.extJunit}"
+    const val instrumentedCommonEspresso = "androidx.test.espresso:espresso-core:${Versions.instrumentedTestCompose}"
+}
+
+object Mockk {
+    const val core = "io.mockk:mockk:${Versions.mockkCore}"
+    const val common = "io.mockk:mockk-common:${Versions.mockkCommon}"
+}
+
+/**
+ * ANDROID UI TESTS
+ * how to add to build.gradle(:app)?
+ * Ex: Inside dependencies {...} add: androidTestImplementation Androidx.espressoCore
+ * */
+object TestUi{
+    const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
+    const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+    const val uiUnitTest = "androidx.compose.ui:ui-test-junit4:${Versions.uiUnitTest}"
+}
+
+object SqlDelight{
+    const val pluginId = "com.squareup.sqldelight"
+    const val driverCommon = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
+    const val driverAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
+    const val driverIos = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+    const val databasePackage = "com.example.kmmproject01.database"
+    const val databaseScheme = "CommonDatabase"
 }

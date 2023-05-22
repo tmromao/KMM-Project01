@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id(Plugins.androidApplication)
+    kotlin(Plugins.android)
 }
 
 android {
@@ -56,4 +56,9 @@ dependencies {
     implementation(Compose.themeAdapter)
     implementation(Compose.runtime)
     implementation(Compose.materialIconsExtended)
+
+    // Testing
+    testImplementation(Test.junit)
+    androidTestImplementation(TestUi.extJunit)
+    androidTestImplementation(Test.instrumentedTestCompose)
 }

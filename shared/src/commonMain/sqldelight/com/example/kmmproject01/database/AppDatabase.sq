@@ -1,0 +1,16 @@
+CREATE TABLE Story (
+    id TEXT NOT NULL,
+    body TEXT NOT NULL
+);
+
+insertStory:
+INSERT INTO Story (id,body) VALUES (?, ?);
+
+removeAllStory:
+DELETE FROM Story;
+
+selectStoryById:
+SELECT * FROM Story WHERE id = ?;
+
+selectAllStories:
+SELECT * FROM Story;
