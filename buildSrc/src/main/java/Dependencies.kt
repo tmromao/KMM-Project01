@@ -1,11 +1,16 @@
 /** PLAYSTORE VERSIONS */
 object Playstore {
-    const val applicationId = "com.example.app" // Can't be changed
+    const val applicationId = "com.example.kmmproject01.android" // Can't be changed
     const val compileSdk = 33
     const val minSdk = 23
     const val targetSdk = 31
     const val versionCode = 1 // Increment on every release
     const val versionName = "1.0.0" // Increment on every release. Suggested approach https://semver.org/
+}
+
+object Namespaces {
+    const val android = "com.example.kmmproject01.android"
+    const val shared = "com.example.kmmproject01"
 }
 
 object Plugins {
@@ -30,15 +35,15 @@ object Versions {
     const val espressoCore = "3.4.0"
     const val uiUnitTest = "1.1.0-beta01"
     const val kotlin = "1.7.10"
-    const val pluginAndroidLib = "7.4.2"
-    const val pluginAndroidApp = "7.4.2"
+    const val pluginAndroidLib = "7.3.0"
+    const val pluginAndroidApp = "7.3.0"
     const val kotlinx = "1.6.4"
     const val viewModel = "2.5.1"
     const val mockkCommon = "1.12.5"
     const val mockkCore = "1.13.2"
     const val sqlDelight = "1.5.3"
     const val kotlinSerializationCore = "1.3.2"
-    const val buildTools = "7.4.2"
+    const val buildTools = "7.3.0"
 }
 
 object Jetbrains {

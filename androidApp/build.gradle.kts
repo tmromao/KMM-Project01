@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.kmm_project01.android"
+    namespace = Namespaces.android
     compileSdk = Playstore.compileSdk
     defaultConfig {
         applicationId = "com.example.kmm_project01.android"
@@ -61,4 +61,7 @@ dependencies {
     testImplementation(Test.junit)
     androidTestImplementation(TestUi.extJunit)
     androidTestImplementation(Test.instrumentedTestCompose)
+
+    // Debugging
+    debugImplementation(Compose.tooling)
 }

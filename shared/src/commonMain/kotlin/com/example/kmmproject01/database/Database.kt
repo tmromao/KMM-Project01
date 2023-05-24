@@ -9,10 +9,10 @@ class Database(driver: SqlDriver, clearDatabase: Boolean = false) {
     private val dbQuery = database.appDatabaseQueries
 
     init {
-        if (clearDatabase) clearDb()
+        if (clearDatabase) clearDatabase()
     }
 
-    private fun clearDb() {
+    fun clearDatabase() {
         dbQuery.transaction {
             dbQuery.removeAllStory()
         }

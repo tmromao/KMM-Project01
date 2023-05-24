@@ -76,7 +76,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.kmm_project01"
+    namespace = Namespaces.shared
     compileSdk = Playstore.compileSdk
     defaultConfig {
         minSdk = Playstore.minSdk
