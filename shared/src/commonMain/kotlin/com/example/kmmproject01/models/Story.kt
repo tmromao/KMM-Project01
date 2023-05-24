@@ -6,13 +6,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Story(
     @SerialName("id")
-    val id:String,
+    val id: String,
     @SerialName("name")
     val name: String,
     @SerialName("media")
     val storyMedia: StoryMedia,
     @SerialName("slides")
-    val slides:List<Slide>
+    val slides: List<Slide>
 )
 
 @Serializable
