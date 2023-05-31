@@ -1,6 +1,7 @@
 package com.example.kmmproject01.android.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kmmproject01.android.MyApplicationTheme
+import com.example.kmmproject01.utils.AndroidApplication
 import com.example.kmmproject01.viewmodels.SampleViewModel
 
 class MainActivity : ComponentActivity() {
@@ -24,6 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val viewModel = SampleViewModel()
+        Log.d("TESTANDO", AndroidApplication.environment.name)
 
         setContent {
             MyApplicationTheme {
@@ -52,10 +55,7 @@ class MainActivity : ComponentActivity() {
                             Text(text = story.name)
                         }
                     }
-
-
                 }
-
             }
         }
     }

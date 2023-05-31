@@ -20,6 +20,7 @@ object Plugins {
     const val kotlin = "kotlin"
     const val multiplatform = "multiplatform"
 }
+
 /** ANDROID APP VERSIONS */
 object Versions {
     const val compose = "1.1.1"
@@ -46,10 +47,11 @@ object Versions {
     const val buildTools = "7.3.0"
     const val shimmer = "1.0.3"
     const val espresso = "3.4.0"
+    const val ktor = "2.1.2" // Releases -> https://ktor.io/docs/releases.html
 }
 
 object Jetbrains {
-const val serializationPluginId = "plugin.serialization"
+    const val serializationPluginId = "plugin.serialization"
     const val serializationKotlin = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
     const val serializationKotlinCore = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerializationCore}"
 }
@@ -91,13 +93,22 @@ object Compose {
 
 }
 
+object Ktor {
+    const val clientOkhttp = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
+    const val clientDarwin = "io.ktor:ktor-client-darwin:${Versions.ktor}"
+    const val core = "io.ktor:ktor-client-core:${Versions.ktor}"
+    const val serialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val clientContentNegotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktor}"
+    const val jsonSerialization = "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktor}"
+}
+
 /**
  * UNIT TEST
  *  How to add to build.gradle(:app)
  *  Ex: Inside dependencies {...} add: testImplementation Test.jUnit
  *  */
 
-object Test{
+object Test {
     const val junit = "junit:junit:${Versions.junit}"
     const val kotlinCommon = "org.jetbrains.kotlin:kotlin-test-common:${Versions.kotlin}"
     const val kotlinAnnotation = "org.jetbrains.kotlin:kotlin-test-annotations-common:${Versions.kotlin}"
@@ -119,13 +130,13 @@ object Mockk {
  * how to add to build.gradle(:app)?
  * Ex: Inside dependencies {...} add: androidTestImplementation Androidx.espressoCore
  * */
-object TestUi{
+object TestUi {
     const val extJunit = "androidx.test.ext:junit:${Versions.extJunit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val uiUnitTest = "androidx.compose.ui:ui-test-junit4:${Versions.uiUnitTest}"
 }
 
-object SqlDelight{
+object SqlDelight {
     const val pluginId = "com.squareup.sqldelight"
     const val driverCommon = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
     const val driverAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
