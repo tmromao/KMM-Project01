@@ -40,8 +40,8 @@ kotlin {
                 // CORE TEST LIBS
                 implementation(Test.kotlinCommon)
                 implementation(Test.kotlinAnnotation)
- //               implementation(Mockk.core)
-   //             implementation(Mockk.common)
+        //                       implementation(Mockk.core)
+      //                       implementation(Mockk.common)
             }
         }
         val androidMain by getting {
@@ -50,7 +50,20 @@ kotlin {
                 implementation(SqlDelight.driverAndroid)
             }
         }
-        //val androidUnitTest by getting
+        val androidTest by getting {
+            dependencies {
+                implementation(Test.junit)
+            }
+        }
+        val androidAndroidTest by getting {
+            dependencies {
+                implementation(Test.instrumentedCommonJunit)
+                implementation(Test.instrumentedCommonJunitKtx)
+                implementation(Test.instrumentedCommonEspresso)
+            }
+        }
+
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -59,7 +72,7 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
-            dependencies{
+            dependencies {
                 implementation(SqlDelight.driverIos)
             }
         }
@@ -75,12 +88,20 @@ kotlin {
     }
 }
 
+
+
 android {
     namespace = Namespaces.shared
     compileSdk = Playstore.compileSdk
     defaultConfig {
         minSdk = Playstore.minSdk
         targetSdk = Playstore.targetSdk
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        resources {
+            excludes += mutableSetOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
+        }
     }
 }
 

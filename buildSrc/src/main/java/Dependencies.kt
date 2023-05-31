@@ -44,6 +44,8 @@ object Versions {
     const val sqlDelight = "1.5.3"
     const val kotlinSerializationCore = "1.3.2"
     const val buildTools = "7.3.0"
+    const val shimmer = "1.0.3"
+    const val espresso = "3.4.0"
 }
 
 object Jetbrains {
@@ -104,7 +106,7 @@ object Test{
     // Instrumented test common
     const val instrumentedCommonJunit = "androidx.test.ext:junit:${Versions.extJunit}"
     const val instrumentedCommonJunitKtx = "androidx.test.ext:junit-ktx:${Versions.extJunit}"
-    const val instrumentedCommonEspresso = "androidx.test.espresso:espresso-core:${Versions.instrumentedTestCompose}"
+    const val instrumentedCommonEspresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }
 
 object Mockk {

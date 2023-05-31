@@ -1,8 +1,5 @@
 package com.example.kmmproject01
 
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -10,6 +7,7 @@ import kotlin.test.assertEquals
 // 2. Add mockk plugin
 // 3. Add mockk annotation processor
 // 4. Add mockk impl dependency
+/*
 
 class MockSampleTest {
 
@@ -28,4 +26,4 @@ class MockSampleTest {
         assertEquals("13:15", time)
 
     }
-}
+}*/
