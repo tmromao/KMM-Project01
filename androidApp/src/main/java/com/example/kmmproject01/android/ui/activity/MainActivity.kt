@@ -19,9 +19,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.kmmproject01.android.MyApplicationTheme
 import com.example.kmmproject01.utils.AndroidApplication
+import com.example.kmmproject01.viewmodels.EntryViewModel
 import com.example.kmmproject01.viewmodels.SampleViewModel
 
 class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val entryViewModel = EntryViewModel()
+        Log.d("TESTANDO", AndroidApplication.environment.name)
+
+        setContent {
+            MyApplicationTheme {
+                KtorVid(viewModel = entryViewModel)
+            }
+        }
+    }
+}
+
+/*class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +75,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+}*/
 
 
 @Preview

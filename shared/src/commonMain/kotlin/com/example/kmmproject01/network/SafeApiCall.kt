@@ -1,9 +1,28 @@
 package com.example.kmmproject01.network
 
-suspend fun <T:Any> safeApiCall(apiCall: suspend () -> T): NetworkResult<T> {
+import com.example.kmmproject01.network.models.ApiError
+
+
+class YourCompanyException(
+    message: String? = null,
+    val apiError: ApiError? = null,
+) : Exception(message)
+
+suspend fun <T : Any> safeApiCall(apiCall: suspend () -> T): NetworkResult<T> {
     return try {
         NetworkResult.Success(data = apiCall.invoke())
-    } catch (e: Exception) {
+    }
+    catch (e: YourCompanyException){
+        return mapYourCompanyException(e)
+    }
+    catch (e: Exception) {
         NetworkResult.Exception(e)
     }
+}
+
+fun <T> mapYourCompanyException(e: YourCompanyException): NetworkResult<T> {
+    return NetworkResult.Error(
+        code = e.apiError?.code ?: "0",
+        errorMessage = e.apiError?.message ?: "Erro desconhecido!"
+    )
 }

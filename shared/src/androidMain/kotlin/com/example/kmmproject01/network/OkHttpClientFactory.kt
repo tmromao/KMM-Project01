@@ -1,7 +1,9 @@
 package com.example.kmmproject01.network
 
+import com.example.kmmproject01.network.models.ApiError
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
+import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.engine.okhttp.OkHttpConfig
 import io.ktor.client.plugins.BodyProgress.Plugin.install
@@ -9,6 +11,7 @@ import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.userAgent
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
@@ -24,7 +27,6 @@ fun createOkHttpClient(clientConfig: ClientConfig): HttpClient {
         installResponseValidator()
     }
 }
-
 
 fun HttpClientConfig<OkHttpConfig>.installJsonSerializer() {
     install(ContentNegotiation) {
@@ -53,10 +55,18 @@ fun HttpClientConfig<OkHttpConfig>.installDefaultUserAgentAndHeader(clientConfig
     }
 }
 
+//
 private fun HttpClientConfig<OkHttpConfig>.installResponseValidator() {
     HttpResponseValidator {
         validateResponse { response ->
-            // TODO: Próximos episódios
+            if(response.status != HttpStatusCode.OK){
+                try {
+                    val apiError = response.body<ApiError>()
+                    throw YourCompanyException(message = "YourCompanyExceptioin", apiError = apiError)
+                } catch (e: Throwable){
+                    throw Exception("${response.status}: ${response.body<String>()}",e)
+                }
+            }
         }
     }
 }
