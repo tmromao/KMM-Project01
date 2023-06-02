@@ -8,6 +8,7 @@ package com.example.kmmproject01.network
 enum class Environment(
     val host: String,
     val certificatePinningHashes: List<String> = emptyList(),
+    val hostTest: String = ""
 ) {
     PROD(
         "https://api.YOURCOMPANY.com/",
@@ -15,8 +16,15 @@ enum class Environment(
             "sha256/rE/SEU_HASH_PINNING_AQUI=",
         )
     ),
-    DEV("https://api.github.com/"),
-    INT("https://api.github.com/");
+    INT("https://api.publicapis.org/"),
+    DEV(
+        host = "https://api.github.com/",
+        certificatePinningHashes = listOf(
+            "sha256/rE/SEU_HASH_PINNING_AQUI=",
+        ),
+        hostTest = "https://api.publicapis.org"
+    );
+
 
     companion object {
         fun getEnvironmentByBuildFlavor(buildFlavor: String): Environment {
