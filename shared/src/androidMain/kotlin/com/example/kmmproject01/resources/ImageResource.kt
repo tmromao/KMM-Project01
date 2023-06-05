@@ -1,6 +1,6 @@
 package com.example.kmmproject01.resources
 
-import com.example.kmmproject01.utils.AndroidApplication
+import com.example.kmmproject01.utils.AndroidMainApp
 
 actual class ImageResource actual constructor(private val name: String) {
 
@@ -9,7 +9,7 @@ actual class ImageResource actual constructor(private val name: String) {
 
     private fun getDrawableRes(): Int {
         return if (_id == -1) {
-            with(AndroidApplication.context) {
+            with(AndroidMainApp.applicationContext) {
                 resources.getIdentifier(name, "drawable", packageName)
             }
         } else return _id
