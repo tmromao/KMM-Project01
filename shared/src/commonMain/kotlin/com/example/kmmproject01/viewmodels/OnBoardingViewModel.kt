@@ -11,7 +11,6 @@ import com.example.kmmproject01.resources.Resources
 class OnBoardingViewModel(
     val images: OnBoardingImages, //  Pitfall nr1. kmm para ios não sabe lidar com default values (yet)
 ) : BaseSharedViewModel() {
-
     constructor() : this(
         images = OnBoardingImages()
     )

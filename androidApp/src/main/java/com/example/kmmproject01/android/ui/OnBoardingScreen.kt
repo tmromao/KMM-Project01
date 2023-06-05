@@ -3,7 +3,6 @@ package com.example.kmmproject01.android.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.RowScopeInstance.weight
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,8 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.kmmproject01.android.MyApplicationTheme
+import com.example.kmmproject01.android.R
+import com.example.kmmproject01.viewmodels.OnBoardingImages
 import com.example.kmmproject01.viewmodels.OnBoardingViewModel
+import com.example.kmmproject01.resources.getPreviewImageResource
 
 @Composable
 fun OnBoardingScreen(
@@ -52,8 +56,26 @@ fun OnBoardingScreen(
                 )
                 Text("renderizar imagens")
             }
-
         }
     }
-
 }
+
+@Preview
+@Composable
+fun OnBoardingPreview() {
+    MyApplicationTheme {
+        Column {
+            OnBoardingScreen(
+                viewModel = OnBoardingViewModel(
+                    images = OnBoardingImages(
+                        topImage = getPreviewImageResource(id = R.drawable.ic_warning),
+                        middleImage = getPreviewImageResource(id = R.drawable.ic_warning),
+                        bottomImage = getPreviewImageResource(id = R.drawable.ic_warning)
+                    )
+                )
+            )
+        }
+    }
+}
+
+
