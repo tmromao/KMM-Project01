@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kmmproject01.android.MyApplicationTheme
+import com.example.kmmproject01.di.DI
 import com.example.kmmproject01.utils.AndroidMainApp
 import com.example.kmmproject01.viewmodels.EntryViewModel
 
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val entryViewModel = EntryViewModel()
-        Log.d("TESTANDO", AndroidMainApp.environment.name)
+        Log.d("TESTANDO", DI.Native.environment.name)
 
         setContent {
             MyApplicationTheme {

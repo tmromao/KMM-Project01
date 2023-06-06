@@ -22,6 +22,8 @@ import com.example.kmmproject01.android.R
 import com.example.kmmproject01.viewmodels.OnBoardingImages
 import com.example.kmmproject01.viewmodels.OnBoardingViewModel
 import com.example.kmmproject01.resources.getPreviewImageResource
+import com.example.kmmproject01.resources.getTextResource
+import com.example.kmmproject01.viewmodels.OnBoardingTexts
 
 @Composable
 fun OnBoardingScreen(
@@ -45,7 +47,8 @@ fun OnBoardingScreen(
                     painter = painterResource(id = viewModel.images.topImage.id),
                     contentDescription = "TopImage",
                 )
-                Text("Hello Compose")
+                //Text(text = viewModel.texts.topImageText)
+                Text("Eu consigo...")
                 Image(
                     painter = painterResource(id = viewModel.images.middleImage.id),
                     contentDescription = "MiddleImage",
@@ -73,6 +76,11 @@ fun OnBoardingPreview() {
                         topImage = getPreviewImageResource(id = R.drawable.ic_warning),
                         middleImage = getPreviewImageResource(id = R.drawable.ic_warning),
                         bottomImage = getPreviewImageResource(id = R.drawable.ic_warning)
+                    ),
+                    texts = OnBoardingTexts(
+                        topImageText = getTextResource("TopImageText"),
+                        middleImageText = getTextResource("MiddleImageText"),
+                        bottomImageText = getTextResource("BottomImageText")
                     )
                 )
             )

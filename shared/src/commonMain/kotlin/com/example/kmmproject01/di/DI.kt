@@ -1,6 +1,9 @@
 package com.example.kmmproject01.di
 
+
 import com.example.kmmproject01.di.DI.Native.environment
+import com.example.kmmproject01.di.FakeDI
+
 import com.example.kmmproject01.network.Environment
 import kotlin.native.concurrent.ThreadLocal
 
@@ -46,6 +49,6 @@ object DI {
     }
 
     // for Android preview [see DependencyInjectionForPreview] and testing later on
-    fun fake() = fakeDI()
+    fun fake() = FakeDI()
 
 }
