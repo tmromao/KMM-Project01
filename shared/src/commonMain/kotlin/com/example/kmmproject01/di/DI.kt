@@ -5,6 +5,8 @@ import com.example.kmmproject01.di.DI.Native.environment
 import com.example.kmmproject01.di.FakeDI
 
 import com.example.kmmproject01.network.Environment
+import com.example.kmmproject01.settings.AppSettings
+import com.example.kmmproject01.settings.SettingsService
 import kotlin.native.concurrent.ThreadLocal
 
 // 1) Renomear AndroidApp para AndroidMainApp e criar IOSMainApp
@@ -38,6 +40,7 @@ object DI {
 
         return when(T::class) {
             Environment::class -> lazy { environment as T }
+            SettingsService::class -> lazy { AppSettings() as T }
             else -> throw IllegalArgumentException("Dependency not found! Specify class \"${T::class.qualifiedName}\" in DI.inject()")
         }
     }
