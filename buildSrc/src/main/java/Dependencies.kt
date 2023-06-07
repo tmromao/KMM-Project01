@@ -75,6 +75,7 @@ object Androidx {
     const val core = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"
     const val viewModelLifecycle = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModel}"
+    const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
     const val preferences = "androidx.preference:preference-ktx:${Versions.preferences}"
 }
 
@@ -91,6 +92,7 @@ object Compose {
     const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
     const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
     const val themeAdapter = "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
+    const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
     const val tooling = "androidx.compose.ui:ui-tooling-data:${Versions.compose}"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"

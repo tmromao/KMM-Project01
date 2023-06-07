@@ -12,7 +12,7 @@ import com.example.kmmproject01.android.R
 /** Centralizes app fonts, so we do not have to change each font manually in the whole app*/
 object FontTypes {
     val ttOpenSansCondensedRegular: Font = Font(
-        resId = R.font.openSans_condensed_regular,
+        resId = R.font.opensans_condensed_regular,
         weight = FontWeight.W700,
         style = FontStyle.Normal
     )
