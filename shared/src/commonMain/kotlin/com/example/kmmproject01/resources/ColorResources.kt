@@ -1,5 +1,9 @@
 package com.example.kmmproject01.resources
 
+import kotlin.native.concurrent.ThreadLocal
+
+
+@ThreadLocal
 object ColorResources {
     fun getTheme(): Theme = if (isSystemInDarkMode()) Theme.Dark else Theme.Light
 }

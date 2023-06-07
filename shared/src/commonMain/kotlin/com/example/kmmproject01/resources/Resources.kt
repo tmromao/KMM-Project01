@@ -8,4 +8,7 @@ object Resources {
 
     val Theme:Theme
         get() = Color.getTheme()
+
+    // How to use: ex. modifier = modifier.height(Spacing.extraLarge.dp)
+    val Spacing = SpacingResources.getSpacing()
 }
