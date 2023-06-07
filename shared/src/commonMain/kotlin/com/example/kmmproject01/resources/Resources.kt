@@ -4,4 +4,8 @@ package com.example.kmmproject01.resources
 object Resources {
     val Image = ImageResources
     val Strings = StringResources
+    val Color = ColorResources
+
+    val Theme:Theme
+        get() = Color.getTheme()
 }

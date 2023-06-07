@@ -23,7 +23,7 @@ object Plugins {
 
 /** ANDROID APP VERSIONS */
 object Versions {
-    const val compose = "1.1.1"
+    const val compose = "1.2.1"
     const val composeActivity = "1.4.0"
     const val composeCompiler = "1.3.1"
     const val composeThemeAdapter = "1.1.5"
@@ -44,10 +44,11 @@ object Versions {
     const val mockkCore = "1.13.2"
     const val sqlDelight = "1.5.3"
     const val kotlinSerializationCore = "1.3.2"
-    const val buildTools = "7.3.0"
+    const val buildTools = "7.4.2"
     const val shimmer = "1.0.3"
     const val espresso = "3.4.0"
     const val ktor = "2.1.2" // Releases -> https://ktor.io/docs/releases.html
+    const val uiGraphics = "1.3.2"
 }
 
 object Jetbrains {
@@ -90,6 +91,7 @@ object Compose {
     const val tooling = "androidx.compose.ui:ui-tooling-data:${Versions.compose}"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"
+    const val uiGraphics = "androidx.compose.ui:ui-graphics:${Versions.uiGraphics}"
 
 }
 
