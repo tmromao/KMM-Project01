@@ -87,7 +87,6 @@ kotlin {
             }
         }
 
-
         val iosX64Test by getting
         val iosArm64Test by getting
         val iosSimulatorArm64Test by getting
@@ -99,8 +98,6 @@ kotlin {
         }
     }
 }
-
-
 
 android {
     namespace = Namespaces.shared

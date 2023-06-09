@@ -23,7 +23,7 @@ object Plugins {
 
 /** ANDROID APP VERSIONS */
 object Versions {
-    const val compose = "1.2.1"
+    const val compose = "1.1.1"
     const val composeActivity = "1.4.0"
     const val composeCompiler = "1.3.1"
     const val composeThemeAdapter = "1.1.5"
@@ -44,10 +44,10 @@ object Versions {
     const val mockkCore = "1.13.2"
     const val sqlDelight = "1.5.3"
     const val kotlinSerializationCore = "1.3.2"
-    const val buildTools = "7.4.2"
+    const val buildTools = "7.3.0"
     const val shimmer = "1.0.3"
     const val espresso = "3.4.0"
-    const val ktor = "2.1.2" // Releases -> https://ktor.io/docs/releases.html
+    const val ktor = "2.3.0" // Releases -> https://ktor.io/docs/releases.html
     const val uiGraphics = "1.3.2"
     const val settings = "1.0.0"
     const val preferences = "1.2.0"
