@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package com.example.kmmproject01.network
 
 import com.example.kmmproject01.network.models.ApiError
@@ -14,6 +16,7 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.userAgent
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
 // Para ver e rever esta implementacao. naotar que defino o que quero instalar e depois faço a implementaçao

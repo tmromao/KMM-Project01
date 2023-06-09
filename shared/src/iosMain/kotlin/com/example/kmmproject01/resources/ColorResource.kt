@@ -6,8 +6,8 @@ import platform.UIKit.UIUserInterfaceStyle
 import platform.UIKit.currentTraitCollection
 
 actual fun isSystemInDarkMode(): Boolean {
-    val mode = UITraitCollection.currentTraitCollection.userInterfaceStyle()
-    return mode == UIUserInterfaceStyle.UIUserInterfaceStyleDark
+//    val mode = UITraitCollection.currentTraitCollection.userInterfaceStyle()
+  //  return mode == UIUserInterfaceStyle.UIUserInterfaceStyleDark
     return false
 }
 
@@ -20,5 +20,5 @@ actual fun isSystemInDarkMode(): Boolean {
  *
  * */
 actual class ColorResource actual constructor(colorHexValue: Long) : IosColor(colorHexValue) {
-    fun getColor() = UIColor(red = r, green = g, blue = b, alpha = a
+    fun getColor() = UIColor(red = r, green = g, blue = b, alpha = a)
 }
