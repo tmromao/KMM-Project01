@@ -5,10 +5,25 @@ import kotlin.native.concurrent.ThreadLocal
 
 @ThreadLocal
 object ColorResources {
-    fun getTheme(): Theme = if (isSystemInDarkMode()) Theme.Dark else Theme.Light
+    internal fun getTheme(): Theme = if (isSystemInDarkMode()) Theme.Dark else Theme.Light
+    internal fun getDarkTheme(): Theme = Theme.Dark
+    internal fun getLightTheme(): Theme = Theme.Light
 }
 
 abstract class Theme(
+    val primary : ColorResource,
+    val primaryVariant : ColorResource,
+    val secondary : ColorResource,
+    val secondaryVariant : ColorResource,
+    val background : ColorResource,
+    val surface : ColorResource,
+    val error : ColorResource,
+    val onPrimary : ColorResource,
+    val onSecondary : ColorResource,
+    val onBackground : ColorResource,
+    val onSurface : ColorResource,
+    val onError : ColorResource,
+
     // Default theming colors for background and content
     val contentPrimary: ColorResource,
     val contentSecondary: ColorResource,
@@ -39,6 +54,20 @@ abstract class Theme(
     val description: ColorResource,
 ) {
     object Dark : Theme(
+
+        primary = ColorResource(0xFFFFFFFF), //white
+        primaryVariant = ColorResource(0xFFFFFFFF), //white
+        secondary = ColorResource(0xFFFFFFFF), //white
+        secondaryVariant = ColorResource(0xFFFFFFFF), //white
+        background = ColorResource(0xFFFFFFFF), //white
+        surface = ColorResource(0xFFFFFFFF), //white
+        error = ColorResource(0xFFFFFFFF), //white
+        onPrimary = ColorResource(0xFFFFFFFF), //white
+        onSecondary = ColorResource(0xFFFFFFFF), //white
+        onBackground = ColorResource(0xFFFFFFFF), //white
+        onSurface = ColorResource(0xFFFFFFFF), //white
+        onError = ColorResource(0xFFFFFFFF), //white
+
         contentPrimary = ColorResource(0xFFFFFFFF),//white
         contentSecondary = ColorResource(0xFF131313),//black
         backgroundPrimary = ColorResource(0xFF414141),//black
@@ -65,6 +94,20 @@ abstract class Theme(
     )
 
     object Light : Theme(
+
+        primary = ColorResource(0xFF000000), //black
+        primaryVariant = ColorResource(0xFF000000), //black
+        secondary = ColorResource(0xFF000000), //black
+        secondaryVariant = ColorResource(0xFF000000), //black
+        background = ColorResource(0xFF000000), //black
+        surface = ColorResource(0xFF000000), //black
+        error = ColorResource(0xFF000000), //black
+        onPrimary = ColorResource(0xFF000000), //black
+        onSecondary = ColorResource(0xFF000000), //black
+        onBackground = ColorResource(0xFF000000), //black
+        onSurface = ColorResource(0xFF000000), //black
+        onError = ColorResource(0xFF000000), //black
+
         contentPrimary = ColorResource(0xFFFFFFFF),//white
         contentSecondary = ColorResource(0xFFE95D0F),//Orange
         backgroundPrimary = ColorResource(0xFFE95D0F),//Orange

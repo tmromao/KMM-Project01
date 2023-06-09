@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.example.kmmproject01.android.DependencyInjectionForPreview
 import com.example.kmmproject01.android.MyApplicationTheme
 import com.example.kmmproject01.android.R
+import com.example.kmmproject01.android.ui.theme.AndroidAppTheme
 import com.example.kmmproject01.viewmodels.OnBoardingImages
 import com.example.kmmproject01.viewmodels.OnBoardingViewModel
 import com.example.kmmproject01.resources.getPreviewImageResource
@@ -29,46 +30,49 @@ import com.example.kmmproject01.viewmodels.OnBoardingTexts
 fun OnBoardingScreen(
     viewModel: OnBoardingViewModel,
 ) {
-    Surface {
-        Column(
-            verticalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxHeight()
-        ) {
+    AndroidAppTheme {
+        Surface {
             Column(
-                modifier = Modifier
-                    .verticalScroll(state = rememberScrollState())
-                    .weight(weight = 1f, fill = true)
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                verticalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxHeight()
             ) {
-                Image(
-                    painter = painterResource(id = viewModel.images.topImage.id),
-                    contentDescription = "TopImage",
-                )
-                //Text(text = viewModel.texts.topImageText)
-                Text("Eu consigo...")
-                Image(
-                    painter = painterResource(id = viewModel.images.middleImage.id),
-                    contentDescription = "MiddleImage",
-                )
-                Text("Eu consigo...")
-                Image(
-                    painter = painterResource(id = viewModel.images.bottomImage.id),
-                    contentDescription = "BottomImage",
-                )
-                Text("renderizar imagens")
+                Column(
+                    modifier = Modifier
+                        .verticalScroll(state = rememberScrollState())
+                        .weight(weight = 1f, fill = true)
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Image(
+                        painter = painterResource(id = viewModel.images.topImage.id),
+                        contentDescription = "TopImage",
+                    )
+                    //Text(text = viewModel.texts.topImageText)
+                    Text("Eu consigo...")
+                    Image(
+                        painter = painterResource(id = viewModel.images.middleImage.id),
+                        contentDescription = "MiddleImage",
+                    )
+                    Text("Eu consigo...")
+                    Image(
+                        painter = painterResource(id = viewModel.images.bottomImage.id),
+                        contentDescription = "BottomImage",
+                    )
+                    Text("renderizar imagens")
+                }
             }
         }
     }
+
 }
 
 @Preview
 @Composable
 fun OnBoardingPreview() {
     DependencyInjectionForPreview()
-    MyApplicationTheme {
+    AndroidAppTheme {
         Column {
             OnBoardingScreen(
                 viewModel = OnBoardingViewModel(

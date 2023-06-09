@@ -2,6 +2,7 @@ package com.example.kmmproject01.android.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Shapes
 import androidx.compose.material.Typography
 import androidx.compose.material.darkColors
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.kmmproject01.resources.Resources
 import com.example.kmmproject01.resources.isSystemInDarkMode
 
 @Composable
@@ -23,15 +25,15 @@ fun AndroidAppTheme(
 
     val colors = if (darkTheme) {
         darkColors(
-            primary = Color(0xFFBB86F5),
-            primaryVariant = Color(0xFF3700B3),
-            secondary = Color(0xFF03DAC6),
+            primary = Resources.Dark.primary.getColor(),
+            primaryVariant = Resources.Dark.primaryVariant.getColor(),
+            secondary = Resources.Dark.secondary.getColor()
         )
     } else {
         lightColors(
-            primary = Color(0xFF6200EE),
-            primaryVariant = Color(0xFF3700B3),
-            secondary = Color(0xFF03DAC6),
+            primary = Resources.Light.primary.getColor(),
+            primaryVariant = Resources.Light.primaryVariant.getColor(),
+            secondary = Resources.Light.secondary.getColor(),
         )
     }
     val typography = Typography(
@@ -49,4 +51,10 @@ fun AndroidAppTheme(
         large = RoundedCornerShape(4.dp)
     )
 
+    MaterialTheme(
+        colors = colors, // Colors that i have defined in the Resources file, shared on both platforms
+        typography = typography,
+        shapes = shapes,
+        content = content
+    )
 }
