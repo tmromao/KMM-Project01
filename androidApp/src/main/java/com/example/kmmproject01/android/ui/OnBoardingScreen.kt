@@ -3,8 +3,10 @@ package com.example.kmmproject01.android.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -20,6 +22,7 @@ import com.example.kmmproject01.android.DependencyInjectionForPreview
 import com.example.kmmproject01.android.MyApplicationTheme
 import com.example.kmmproject01.android.R
 import com.example.kmmproject01.android.ui.theme.AndroidAppTheme
+import com.example.kmmproject01.resources.Resources
 import com.example.kmmproject01.viewmodels.OnBoardingImages
 import com.example.kmmproject01.viewmodels.OnBoardingViewModel
 import com.example.kmmproject01.resources.getPreviewImageResource
@@ -49,6 +52,8 @@ fun OnBoardingScreen(
                         painter = painterResource(id = viewModel.images.topImage.id),
                         contentDescription = "TopImage",
                     )
+                    // Dimensao compartilhada
+                    Spacer(modifier = Modifier.height(Resources.Dimen.button.height))
                     //Text(text = viewModel.texts.topImageText)
                     Text("Eu consigo...")
                     Image(

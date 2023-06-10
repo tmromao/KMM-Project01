@@ -22,4 +22,7 @@ object Resources {
     val Spacing = SpacingResources.getSpacing()
 
     val FontSizing = FontSizingResources.getFontSizing()
+
+    // Dimensoes de componentes (Buttons, TextFields, etc)
+    val Dimen = LayoutDimens.getDimens()
 }
