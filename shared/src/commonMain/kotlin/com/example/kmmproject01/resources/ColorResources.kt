@@ -11,18 +11,18 @@ object ColorResources {
 }
 
 abstract class Theme(
-    val primary : ColorResource,
-    val primaryVariant : ColorResource,
-    val secondary : ColorResource,
-    val secondaryVariant : ColorResource,
-    val background : ColorResource,
-    val surface : ColorResource,
-    val error : ColorResource,
-    val onPrimary : ColorResource,
-    val onSecondary : ColorResource,
-    val onBackground : ColorResource,
-    val onSurface : ColorResource,
-    val onError : ColorResource,
+    val primary: ColorResource,
+    val primaryVariant: ColorResource,
+    val secondary: ColorResource,
+    val secondaryVariant: ColorResource,
+    val background: ColorResource,
+    val surface: ColorResource,
+    val error: ColorResource,
+    val onPrimary: ColorResource,
+    val onSecondary: ColorResource,
+    val onBackground: ColorResource,
+    val onSurface: ColorResource,
+    val onError: ColorResource,
 
     // Default theming colors for background and content
     val contentPrimary: ColorResource,
@@ -52,6 +52,12 @@ abstract class Theme(
     val titleSecondary: ColorResource,
     val subtitle: ColorResource,
     val description: ColorResource,
+
+    // TextField theming colors
+    val textFieldHintColor: ColorResource,
+    val textFieldCursorColor: ColorResource,
+    val textFieldSelectedFocusColor: ColorResource,
+    val textFieldUnselectedFocusColor: ColorResource,
 ) {
     object Dark : Theme(
 
@@ -91,6 +97,11 @@ abstract class Theme(
         titleSecondary = ColorResource(0xFFBDBDBD),//white
         subtitle = ColorResource(0xFFBDBDBD),//white
         description = ColorResource(0xFFBDBDBD),//white
+
+        textFieldHintColor = ColorResource(0xFFBDBDBD),//white
+        textFieldCursorColor = ColorResource(0xFFFFFFFF),//white
+        textFieldSelectedFocusColor = ColorResource(0xFFFFFFFF),//white
+        textFieldUnselectedFocusColor = ColorResource(0xFFBDBDBD),//white
     )
 
     object Light : Theme(
@@ -131,5 +142,10 @@ abstract class Theme(
         titleSecondary = ColorResource(0xFFE95D0F),//Orange
         subtitle = ColorResource(0xFFE95D0F),//Orange
         description = ColorResource(0xFFE95D0F),//Orange
+
+        textFieldHintColor = ColorResource(0xFFBDBDBD),//white
+        textFieldCursorColor = ColorResource(0xFFFFFFFF),//white
+        textFieldSelectedFocusColor = ColorResource(0xFFFFFFFF),//white
+        textFieldUnselectedFocusColor = ColorResource(0xFFBDBDBD),//white
     )
 }

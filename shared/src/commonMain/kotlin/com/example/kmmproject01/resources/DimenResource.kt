@@ -25,4 +25,4 @@ abstract class ComponentDimens(
 }
 
 expect class ButtonDimensResource(roundedCornerUnit: Int, minWidthUnit:Int, heightUnit:Int, smallHeightUnit:Int)
-expect class TextFieldDimensResource(minWidthUnit: Int, minHeightUnit: Int)
+expect class TextFieldDimensResource(minWidthUnit: Int, minHeightUnit: Int, roundCornerUnit: Int = 0)

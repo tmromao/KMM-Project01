@@ -3,4 +3,9 @@
     <string name="top_image_text">Top Image Text</string>
     <string name="middle_image_text">Middle Image Text</string>
     <string name="bottom_image_text">Bottom Image Text</string>
+
+    <string name="textfield_number_not_found">Number Not found</string>
+    <string name="textfield_invalid_birthdate">Invalid Birthdate</string>
+    <string name="textfield_invalid_code">Invalid Code</string>
+
 </resources>
