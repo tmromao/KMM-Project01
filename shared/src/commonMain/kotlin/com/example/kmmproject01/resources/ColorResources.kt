@@ -24,6 +24,11 @@ abstract class Theme(
     val onSurface: ColorResource,
     val onError: ColorResource,
 
+    // Default theming colors for buttons
+    val loadingButtonActiveColor: ColorResource,
+    val loadingButtonLoadingColor: ColorResource,
+    val loadingButtonDisabledColor: ColorResource,
+
     // Default theming colors for background and content
     val contentPrimary: ColorResource,
     val contentSecondary: ColorResource,
@@ -74,6 +79,11 @@ abstract class Theme(
         onSurface = ColorResource(0xFFFFFFFF), //white
         onError = ColorResource(0xFFFFFFFF), //white
 
+        // Default theming colors for buttons
+        loadingButtonActiveColor = ColorResource(0xFFFFFFFF), //white
+        loadingButtonLoadingColor = ColorResource(0xFFF09C6D), //orange
+        loadingButtonDisabledColor = ColorResource(0xFFEFEFEF), //grey
+
         contentPrimary = ColorResource(0xFFFFFFFF),//white
         contentSecondary = ColorResource(0xFF131313),//black
         backgroundPrimary = ColorResource(0xFF414141),//black
@@ -118,6 +128,11 @@ abstract class Theme(
         onBackground = ColorResource(0xFF000000), //black
         onSurface = ColorResource(0xFF000000), //black
         onError = ColorResource(0xFF000000), //black
+
+        // Default theming colors for buttons
+        loadingButtonActiveColor = ColorResource(0xFFFFFFFF), //white
+        loadingButtonLoadingColor = ColorResource(0xFFF09C6D), //orange
+        loadingButtonDisabledColor = ColorResource(0xFFEFEFEF), //grey
 
         contentPrimary = ColorResource(0xFFFFFFFF),//white
         contentSecondary = ColorResource(0xFFE95D0F),//Orange

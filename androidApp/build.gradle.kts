@@ -76,6 +76,7 @@ dependencies {
     implementation(Compose.themeAdapter)
     implementation(Compose.runtime)
     implementation(Compose.materialIconsExtended)
+    implementation(Compose.lottie)
 
     // Testing
     testImplementation(Test.junit)

@@ -51,6 +51,7 @@ object Versions {
     const val uiGraphics = "1.3.2"
     const val settings = "1.0.0"
     const val preferences = "1.2.0"
+    const val lottie = "5.2.0"
 }
 
 object Jetbrains {
@@ -97,6 +98,7 @@ object Compose {
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"
     const val uiGraphics = "androidx.compose.ui:ui-graphics:${Versions.uiGraphics}"
+    const val lottie = "com.airbnb.android:lottie-compose:${Versions.lottie}"
 
 }
 
