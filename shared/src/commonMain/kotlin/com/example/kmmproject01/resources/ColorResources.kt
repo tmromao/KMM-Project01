@@ -24,10 +24,14 @@ abstract class Theme(
     val onSurface: ColorResource,
     val onError: ColorResource,
 
+
+
     // Default theming colors for buttons
     val loadingButtonActiveColor: ColorResource,
     val loadingButtonLoadingColor: ColorResource,
     val loadingButtonDisabledColor: ColorResource,
+
+
 
     // Default theming colors for background and content
     val contentPrimary: ColorResource,

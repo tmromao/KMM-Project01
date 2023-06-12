@@ -20,7 +20,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme {
-                KtorVid(viewModel = entryViewModel)
+                // KtorVid(viewModel = entryViewModel)
+                CustomDialogVideo()
             }
         }
     }

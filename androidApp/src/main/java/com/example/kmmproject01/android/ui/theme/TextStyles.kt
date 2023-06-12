@@ -13,6 +13,12 @@ object TextStyles {
         fontSize = Resources.FontSizing.big.size,
         fontStyle = FontTypes.ttOpenSansCondensedRegular.style
     )
+    val h2 = TextStyle(
+        fontFamily = FontTypes.ttOpenSansCondensedRegular.toFontFamily(),
+        fontWeight = FontTypes.ttOpenSansCondensedRegular.weight,
+        fontSize = Resources.FontSizing.normal.size,
+        fontStyle = FontTypes.ttOpenSansCondensedRegular.style
+    )
     val button = TextStyle(
         fontFamily = FontTypes.ttOpenSansCondensedRegular.toFontFamily(),
         fontWeight = FontTypes.ttOpenSansCondensedRegular.weight,

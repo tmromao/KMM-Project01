@@ -8,4 +8,14 @@
     <string name="textfield_invalid_birthdate">Invalid Birthdate</string>
     <string name="textfield_invalid_code">Invalid Code</string>
 
+    <string name="dialog_title_force_update">Force Update</string>
+    <string name="dialog_description_force_update">Please update the app to continue using it.</string>
+    <string name="dialog_primary_button_text_force_update">Update</string>
+    <string name="dialog_secondary_button_text_force_update">Exit</string>
+
+    <string name="dialog_title_cancel">Cancel</string>
+    <string name="dialog_description_cancel">Are you sure you want to cancel?</string>
+    <string name="dialog_primary_button_text_cancel">Yes</string>
+    <string name="dialog_secondary_button_text_cancel">No</string>
+
 </resources>
