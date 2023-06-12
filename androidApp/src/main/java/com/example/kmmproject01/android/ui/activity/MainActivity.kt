@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 // KtorVid(viewModel = entryViewModel)
-                CustomDialogVideo()
+                //CustomDialogVideo()
+                ModalBottomSheetVideo()
             }
         }
     }
