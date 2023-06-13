@@ -17,12 +17,14 @@ abstract class ComponentDimens(
     val button: ButtonDimensResource,
     val surface: SurfaceDimensResource,
     val textInputField: TextFieldDimensResource,
+    val defaultPadding: DefaultPaddingsResource
     //...outros componentes adicione aqui
 ){
     internal class Dimens:ComponentDimens(
         button = ButtonDimensResource(20, 0, 44, 34),
         surface = SurfaceDimensResource(20),
         textInputField = TextFieldDimensResource(40, 48),
+        defaultPadding = DefaultPaddingsResource(16, 16, 16, 16)
     )
 }
 
@@ -30,3 +32,10 @@ expect class ButtonDimensResource(roundedCornerUnit: Int, minWidthUnit:Int, heig
 
 expect class SurfaceDimensResource(roundedCornerUnit: Int)
 expect class TextFieldDimensResource(minWidthUnit: Int, minHeightUnit: Int, roundCornerUnit: Int = 0)
+
+expect class DefaultPaddingsResource(
+    defaultStart: Int,
+    defaultEnd: Int,
+    defaultTop: Int,
+    defaultBottom: Int
+)
