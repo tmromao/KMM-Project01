@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kmmproject01.android.ui.components.BottomNavigationBar
 import com.example.kmmproject01.android.ui.components.DummyScreen
 import com.example.kmmproject01.android.ui.screens.AnimationScreen
 import com.example.kmmproject01.navigation.Navigator

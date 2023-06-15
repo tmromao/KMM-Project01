@@ -6,7 +6,7 @@ import com.example.kmmproject01.resources.ImageResource
 import com.example.kmmproject01.resources.Resources
 import com.example.kmmproject01.resources.TextResource
 
-/ 1) ESPECIFIQUE OS RECURSOS
+// 1) ESPECIFIQUE OS RECURSOS
 //      - ImageResource
 //      - StringResource
 // 2) CRIE E DEFINA OS VECTORES DE IMAGENS E TEXTOS EM STRINGS.XML

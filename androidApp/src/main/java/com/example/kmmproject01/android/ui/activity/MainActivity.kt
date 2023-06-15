@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import com.example.kmmproject01.android.MyApplicationTheme
+import com.example.kmmproject01.android.ui.screens.NavigationVideo
 import com.example.kmmproject01.android.ui.screens.SplashWithLottieVid
 import com.example.kmmproject01.android.ui.theme.AndroidAppTheme
 import com.example.kmmproject01.di.DI
@@ -62,9 +63,9 @@ class MainActivity : ComponentActivity() {
                     // KtorVid(viewModel = entryViewModel)
                     //CustomDialogVideo()
                     //ModalBottomSheetVideo()
-                    SplashWithLottieVid()
+                    //SplashWithLottieVid()
+                    NavigationVideo()
                 }
-
 
             }
         }
