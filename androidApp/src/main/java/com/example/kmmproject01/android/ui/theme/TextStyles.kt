@@ -62,4 +62,11 @@ object TextStyles {
         fontSize = Resources.FontSizing.small.size,
         fontStyle = FontTypes.ttOpenSansCondensedRegular.style
     )
+
+    val navBarItem = TextStyle(
+        fontFamily = FontTypes.ttOpenSansCondensedRegular.toFontFamily(),
+        fontWeight = FontTypes.ttOpenSansCondensedRegular.weight,
+        fontSize = 13.sp,
+        fontStyle = FontTypes.ttOpenSansCondensedRegular.style
+    )
 }

@@ -23,4 +23,10 @@ object StringResources {
     val connectivity_ct_device_offline = TextResource("connectivity_ct_device_offline")
     val connectivity_ct_device_online = TextResource("connectivity_ct_device_online")
 
+    // VIDEO TEXTOS COMPARTILHADOS (ASSISTA, VC VAI PRECISAR 100%): https://youtu.be/MjitUKJFu80
+    val nav_bar_home = TextResource("nav_bar_home")
+    val nav_bar_insurance = TextResource("nav_bar_insurance")
+    val nav_bar_support = TextResource("nav_bar_support")
+    val nav_bar_profile = TextResource("nav_bar_profile")
+
 }
