@@ -52,6 +52,12 @@ object Versions {
     const val settings = "1.0.0"
     const val preferences = "1.2.0"
     const val lottie = "5.2.0"
+
+    const val adobeSdkCore = "1.+"
+    const val adobeCore = "1.11.4"
+    const val adobeAnalytics = "1.2.10"
+
+    const val navigation = "2.5.3"
 }
 
 object Jetbrains {
@@ -99,6 +105,8 @@ object Compose {
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"
     const val uiGraphics = "androidx.compose.ui:ui-graphics:${Versions.uiGraphics}"
     const val lottie = "com.airbnb.android:lottie-compose:${Versions.lottie}"
+    const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
+    const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.viewModel}"
 
 }
 
@@ -156,4 +164,10 @@ object SqlDelight {
     const val driverIos = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
     const val databasePackage = "com.example.kmmproject01.database"
     const val databaseScheme = "CommonDatabase"
+}
+
+object Adobe {
+    const val sdkCore = "com.adobe.marketing.mobile:sdk-core:${Versions.adobeSdkCore}"
+    const val core = "com.adobe.marketing.mobile:core:${Versions.adobeCore}"
+    const val analytics = "com.adobe.marketing.mobile:analytics:${Versions.adobeAnalytics}"
 }

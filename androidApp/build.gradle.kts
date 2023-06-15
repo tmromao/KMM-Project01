@@ -77,6 +77,13 @@ dependencies {
     implementation(Compose.runtime)
     implementation(Compose.materialIconsExtended)
     implementation(Compose.lottie)
+    implementation(Compose.navigation)
+    implementation(Compose.viewModelCompose)
+
+    // ADOBE
+    implementation(Adobe.core)
+    implementation(Adobe.sdkCore)
+    implementation(Adobe.analytics)
 
     // Testing
     testImplementation(Test.junit)
