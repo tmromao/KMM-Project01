@@ -1,5 +1,34 @@
 package com.example.kmmproject01.resources
 
+actual class HeaderDimensResource actual constructor(
+    private val defaultHeight: Int,
+    private val defaultContentHeight: Int,
+    private val defaultPaddingStart: Int,
+    private val defaultPaddingTop: Int,
+    private val defaultPaddingEnd: Int,
+    private val defaultPaddingBottom: Int,
+    private val defaultFakeBlurAlpha: Float
+) {
+    val height: Double by lazy { defaultHeight.toDouble() }
+    val contentHeight: Double by lazy { defaultContentHeight.toDouble() }
+    val paddingStart: Double by lazy { defaultPaddingStart.toDouble() }
+    val paddingTop: Double by lazy { defaultPaddingTop.toDouble() }
+    val paddingEnd: Double by lazy { defaultPaddingEnd.toDouble() }
+    val paddingBottom: Double by lazy { defaultPaddingBottom.toDouble() }
+    val fakeBlurAlpha: Double by lazy { defaultFakeBlurAlpha.toDouble() }
+}
+
+actual class ScreenDimensResource actual constructor(
+    private val defaultPadding: Int,
+    private val defaultStatusBarThreshold: Float,
+    private val defaultBlendLimit: Float,
+    private val defaultCurveInset: Int
+) {
+    val padding: Double by lazy { defaultPadding.toDouble() }
+    val statusBarThreshold: Double by lazy { defaultStatusBarThreshold.toDouble() }
+    val blendLimit: Double by lazy { defaultBlendLimit.toDouble() }
+    val curveInset: Double by lazy { defaultCurveInset.toDouble() }
+}
 actual class ButtonDimensResource actual constructor(
     private val roundedCornerUnit: Int,
     private val minWidthUnit: Int,

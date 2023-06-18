@@ -23,7 +23,7 @@ object Plugins {
 
 /** ANDROID APP VERSIONS */
 object Versions {
-    const val compose = "1.1.1"
+    const val compose = "1.2.1"
     const val composeActivity = "1.4.0"
     const val composeCompiler = "1.3.1"
     const val composeThemeAdapter = "1.1.5"
@@ -58,6 +58,7 @@ object Versions {
     const val adobeAnalytics = "1.2.10"
 
     const val navigation = "2.5.3"
+    const val accompanist = "0.28.0"
 }
 
 object Jetbrains {
@@ -72,12 +73,15 @@ object Gradle {
     const val buildTools = "com.android.tools.build:gradle:${Versions.buildTools}"
 }
 
+
 /**
  * APP DEPENDENCIES
  * How to add to build.gradle(:app)?
  * Ex: Inside dependencies {...} add: implementation Androidx.core
  *  */
-
+object Accompanist {
+    const val SystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanist}"
+}
 object Androidx {
     const val core = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntime}"

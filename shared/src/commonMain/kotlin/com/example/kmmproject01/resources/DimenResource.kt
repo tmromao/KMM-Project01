@@ -27,6 +27,17 @@ abstract class ComponentDimens(
         defaultPadding = DefaultPaddingsResource(16, 16, 16, 16)
     )
 }
+expect class HeaderDimensResource(
+    defaultHeight: Int,
+    defaultContentHeight: Int,
+    defaultPaddingStart: Int,
+    defaultPaddingTop: Int,
+    defaultPaddingEnd: Int,
+    defaultPaddingBottom: Int,
+    defaultFakeBlurAlpha: Float
+)
+
+expect class ScreenDimensResource(defaultPadding: Int, defaultStatusBarThreshold: Float, defaultBlendLimit: Float, defaultCurveInset: Int)
 
 expect class ButtonDimensResource(roundedCornerUnit: Int, minWidthUnit:Int, heightUnit:Int, smallHeightUnit:Int)
 

@@ -16,12 +16,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kmmproject01.resources.Resources
 import com.example.kmmproject01.resources.isSystemInDarkMode
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun AndroidAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
+
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(
+        color = Color.Transparent,
+    )
 
     val colors = if (darkTheme) {
         darkColors(
