@@ -18,7 +18,8 @@ expect fun isSystemInDarkMode(): Boolean
  * we offer a color resolver method for android only in its actual implementation.
  *
  * */
-expect class ColorResource(colorHexValue: Long) : IosColor
+//expect class ColorResource(colorHexValue: Long) : IosColor
+expect class ColorResource(light: Long, dark: Long)
 
 /**
  *
