@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,6 +13,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.kmmproject01.android.ui.components.BottomNavigationBar
 import com.example.kmmproject01.android.ui.components.DummyScreen
 import com.example.kmmproject01.android.ui.screens.AnimationScreen
+import com.example.kmmproject01.android.ui.screens.Confirm2faScreen
+import com.example.kmmproject01.android.ui.screens.HomeScreen
+import com.example.kmmproject01.android.ui.screens.ProfileScreen
+import com.example.kmmproject01.android.ui.screens.SupportScreen
 import com.example.kmmproject01.navigation.Navigator
 
 // 1) COMO CRIAR O ROOT-NAV-GRAPH
@@ -31,6 +36,7 @@ fun RootNavigationGraph(navController: NavHostController = rememberNavController
         composable(route = Navigator.homeGraph.root) {
             val mainNavController = rememberNavController()
             Scaffold(
+                backgroundColor = Color.Transparent,// Importante para ver o efeito de gradiente
                 bottomBar = {
                     BottomNavigationBar(navController = mainNavController)
                 }
@@ -51,25 +57,32 @@ fun BottomNavGraph(navController: NavHostController) {
         startDestination = Navigator.bottomNavGraph.home
     ) {
         composable(route = Navigator.bottomNavGraph.home) {
-            DummyScreen(name = "TELA HOME") {
-                // ACÃO DE NAVEGAçÃO AQUI...
-            }
+            HomeScreen(navController = navController)
+            /*DummyScreen(name = "TELA HOME") {
+                    // ACÃO DE NAVEGAçÃO AQUI...
+                }*/
         }
         composable(route = Navigator.bottomNavGraph.insurance) {
-            DummyScreen(name = "TELA SEGURO") {
-                // ACÃO DE NAVEGAçÃO AQUI...
+            Confirm2faScreen(onBack = {}, onClose = { }) {
+
             }
+            /*DummyScreen(name = "TELA SEGURO") {
+                    // ACÃO DE NAVEGAçÃO AQUI...
+                }*/
         }
         composable(route = Navigator.bottomNavGraph.support) {
 
-            DummyScreen(name = "TELA SUPORTE") {
+            SupportScreen(navController = navController)
+            /*DummyScreen(name = "TELA SUPORTE") {
                 // ACÃO DE NAVEGAçÃO AQUI...
-            }
+            }*/
         }
         composable(route = Navigator.bottomNavGraph.profile) {
-            DummyScreen(name = "TELA PERFIL") {
-                // ACÃO DE NAVEGAçÃO AQUI...
-            }
+            ProfileScreen(navController = navController)
+            /*DummyScreen(name = "TELA PERFIL") {
+                    // ACÃO DE NAVEGAçÃO AQUI...
+                }
+    */
         }
     }
 }

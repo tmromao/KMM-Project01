@@ -75,6 +75,14 @@ abstract class Theme (
 
     val selectedContentColor: ColorResource,
     val unselectedContentColor: ColorResource,
+
+    val bgOverlayHeaderDefault: ColorResource,
+    val bgOverlayHeaderScroll: ColorResource,
+    val textStartColor: ColorResource,
+    val textEndColor: ColorResource,
+    val btnBgWhiteAlpha: ColorResource,
+    val btnBgGrayAlpha: ColorResource,
+    val defaultTextColor: ColorResource,
 ) {
     object Dark : Theme (
 
@@ -132,6 +140,14 @@ abstract class Theme (
 
         selectedContentColor = ColorResource(0xFFE95D0F), // laranja
         unselectedContentColor = ColorResource(0x99131313), // back 60% alpha
+
+        bgOverlayHeaderDefault = ColorResource(0x00FFFFFF), // white 0% alpha
+        bgOverlayHeaderScroll = ColorResource(0xFFC0D6DF), // grey light
+        textStartColor = ColorResource(0xFFFFFFFF), // back 60% alpha
+        textEndColor = ColorResource(0x99131313), // back 60% alpha
+        btnBgWhiteAlpha = ColorResource(0xFFFFFFFF), // white
+        btnBgGrayAlpha = ColorResource(0xFFEFEFEF), // black 5% alpha
+        defaultTextColor = ColorResource(0x99131313), // back 60% alpha
     )
 
     object Light : Theme (
@@ -190,5 +206,14 @@ abstract class Theme (
 
         selectedContentColor = ColorResource(0xFFE95D0F), // laranja
         unselectedContentColor = ColorResource(0x99131313), // back 60% alpha
+
+        bgOverlayHeaderDefault = ColorResource(0x00FFFFFF), // white 0% alpha
+        bgOverlayHeaderScroll = ColorResource(0xFFC0D6DF), // grey light
+        textStartColor = ColorResource(0xFFFFFFFF), // back 60% alpha
+        textEndColor = ColorResource(0x99131313), // back 60% alpha
+        btnBgWhiteAlpha = ColorResource(0xFFFFFFFF), // white
+        btnBgGrayAlpha = ColorResource(0xFFEFEFEF), // black 5% alpha
+        defaultTextColor = ColorResource(0x99131313), // back 60% alpha
+
     )
 }

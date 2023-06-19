@@ -16,6 +16,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModel
 import com.example.kmmproject01.android.MyApplicationTheme
 import com.example.kmmproject01.android.ui.screens.NavigationVideo
@@ -34,8 +35,15 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // IMPORTANTE: PARA QUE COMPOSABLES INICIEM PARTINDO DA STATUS BAR E NÃO ABAIXO DELA
+        // PORÉM FIQUE ATENTO QUE VOCÊ PRECISA COMPENSAR A ALTURA DA BARRA DE NAVEGAçÃO
+        // DO SYSTEMA ANDROID NA SUA BOTTOM NAVIGATION BAR, CASO VC ESTEJA USANDO UMA VERSÃO
+        // DE COMPOSE INFERIOR OU IGUAL = 1.1.1. DO CONTRARIO USE "Modifier.navigationBarsPadding"
+        // VIDE: BottomNavigationBar ou Box(Modifier.navigationBarsPadding() ABAIXO
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         // Endereca auditoria de seguranca: Hide recent thumbnails
-        window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        //window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             // Endereca auditoria de seguranca: Hide Multi-Windows Mode
