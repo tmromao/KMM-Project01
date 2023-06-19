@@ -17,6 +17,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.kmmproject01.adobe.AnalyticsService
 import com.example.kmmproject01.android.ui.theme.TextStyles
 import com.example.kmmproject01.navigation.BottomBarItem
+import com.example.kmmproject01.navigation.BottomBarSubItems
+import com.example.kmmproject01.navigation.Navigator
 import com.example.kmmproject01.resources.Resources
 
 object BottomBarConfigList {
@@ -33,8 +35,25 @@ fun BottomNavigationBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
+    val homeItem = BottomBarSubItems.topLevelHomeItem.any { it == currentDestination?.route }
+    val insuranceItem = BottomBarSubItems.topLevelInsuranceItem.any { it == currentDestination?.route }
+    val supportItem = BottomBarSubItems.topLevelSupportItem.any { it == currentDestination?.route }
+    val profileItem = BottomBarSubItems.topLevelHelpItem.any { it == currentDestination?.route }
+    val showNavBarOnSubItems = homeItem || insuranceItem || supportItem || profileItem
+
+    val selectedBottomBarItem = BottomBarConfigList.all.firstOrNull { it.route == currentDestination?.route }
+    val bottomBarItemToHighlight = when {
+        homeItem -> Navigator.bottomNavGraph.home
+        insuranceItem -> Navigator.bottomNavGraph.insurance
+        supportItem -> Navigator.bottomNavGraph.support
+        profileItem -> Navigator.bottomNavGraph.profile
+        else -> selectedBottomBarItem?.route ?: Navigator.bottomNavGraph.home
+    }
+
+
     val showNavigationItems = BottomBarConfigList.all.any { it.route == currentDestination?.route }
-    if (showNavigationItems) {
+    if (showNavigationItems || showNavBarOnSubItems) {
+
         Column {
             BottomNavigation(
                 backgroundColor = Resources.Theme.surface.getColor()
@@ -43,7 +62,8 @@ fun BottomNavigationBar(navController: NavHostController) {
                     AddItem(
                         itemConfig = itemConfig,
                         currentDestination = currentDestination,
-                        navController = navController
+                        navController = navController,
+                        itemToHighlight = bottomBarItemToHighlight,
                     )
                 }
             }
@@ -60,6 +80,7 @@ fun RowScope.AddItem(
     itemConfig: BottomBarItem,
     currentDestination: NavDestination?,
     navController: NavHostController,
+    itemToHighlight: String,
     navIconContentDescription: String? = null,
     //analytics: AnalyticsService = AnalyticsService.instance
 ) {
@@ -77,7 +98,8 @@ fun RowScope.AddItem(
                 contentDescription = navIconContentDescription
             )
         },
-        selected = currentDestination?.hierarchy?.any { it.route == itemConfig.route } == true,
+        selected = currentDestination?.hierarchy?.any { it.route == itemConfig.route } == true || itemConfig.route == itemToHighlight,
+
         selectedContentColor = Resources.Theme.selectedContentColor.getColor(),
         unselectedContentColor = Resources.Theme.unselectedContentColor.getColor(),
         onClick = {

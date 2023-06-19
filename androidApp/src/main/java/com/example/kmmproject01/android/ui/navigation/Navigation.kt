@@ -10,14 +10,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kmmproject01.android.ui.OnBoardingScreen
 import com.example.kmmproject01.android.ui.components.BottomNavigationBar
 import com.example.kmmproject01.android.ui.components.DummyScreen
 import com.example.kmmproject01.android.ui.screens.AnimationScreen
 import com.example.kmmproject01.android.ui.screens.Confirm2faScreen
 import com.example.kmmproject01.android.ui.screens.HomeScreen
+import com.example.kmmproject01.android.ui.screens.LoginScreen
 import com.example.kmmproject01.android.ui.screens.ProfileScreen
 import com.example.kmmproject01.android.ui.screens.SupportScreen
 import com.example.kmmproject01.navigation.Navigator
+import com.example.kmmproject01.viewmodels.OnBoardingViewModel
 
 // 1) COMO CRIAR O ROOT-NAV-GRAPH
 // 2) COMO ADICIONAR ROTAS
@@ -84,5 +87,14 @@ fun BottomNavGraph(navController: NavHostController) {
                 }
     */
         }
+        composable(route = Navigator.authGraph.login) {
+            LoginScreen(onClose = { navController.navigate(Navigator.bottomNavGraph.root) },
+                onNext = { navController.navigate(Navigator.bottomNavGraph.profile) }
+            )
+        }
+        composable(route = Navigator.onboardingGraph.onboarding) {
+            OnBoardingScreen(viewModel = OnBoardingViewModel())
+        }
     }
 }
+

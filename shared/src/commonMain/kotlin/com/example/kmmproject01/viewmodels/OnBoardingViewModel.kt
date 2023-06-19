@@ -20,7 +20,7 @@ class OnBoardingViewModel(
     private val environment by inject<Environment>()
 
     init {
-        CommonLoggerImpl().log("Meu ambiente é: ${environment.name}")
+        //CommonLoggerImpl().log("Onboarding","Meu ambiente é: ${environment.name}")
     }
 
     constructor() : this(

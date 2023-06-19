@@ -10,6 +10,8 @@ import com.example.kmmproject01.network.models.Entry
 import com.example.kmmproject01.repository.EntryRepository
 import com.example.kmmproject01.utils.CommonLogger
 import com.example.kmmproject01.utils.CommonLoggerImpl
+import com.example.kmmproject01.utils.logE
+import com.example.kmmproject01.utils.logI
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -17,7 +19,8 @@ import kotlinx.coroutines.launch
 class EntryViewModel : BaseSharedViewModel() {
 
     private lateinit var storyRepository: EntryRepository
-    private val logger: CommonLogger = CommonLoggerImpl()
+    private val logContext = "EntryViewModel"
+    //private val logger: CommonLogger = CommonLoggerImpl()
 
     private val _entries = MutableStateFlow<List<Entry>?>(null)
     val entries: StateFlow<List<Entry>?>
@@ -49,15 +52,15 @@ class EntryViewModel : BaseSharedViewModel() {
             storyRepository.fetchEntries().collect { networkResult ->
                 when (networkResult) {
                     is NetworkResult.Success -> _entries.emit(networkResult.data).also {
-                        logger.log("Entries fetched successfully")
+                        logI(logContext,"Entries fetched successfully")
                     }
 
                     is NetworkResult.Error -> _entries.emit(networkResult.data).also {
-                        logger.log("Entries error: ${networkResult.errorMessage}")
+                        logE(logContext,"Entries error: ${networkResult.errorMessage}")
                     }
 
                     is NetworkResult.Exception -> _error.emit(networkResult.exception?.message).also {
-                        logger.log("Entries exception: ${networkResult.exception?.message}")
+                        logE(logContext, "Entries exception: ${networkResult.exception?.message}")
                     }
                 }
             }

@@ -27,7 +27,7 @@ class AdobeAnalyticsSdkWrapper(app: Application) : AdobeAnalyticsSdk {
             Lifecycle.registerExtension()
             MobileCore.start(null)
         } catch (e: InvalidInitException) {
-            CommonLoggerImpl().log("Could not initialize Adobe MobileCore: ${e.message}")
+            //CommonLoggerImpl().log("Could not initialize Adobe MobileCore: ${e.message}")
         }
     }
 

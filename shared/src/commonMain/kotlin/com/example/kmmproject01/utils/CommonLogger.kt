@@ -5,5 +5,5 @@ package com.example.kmmproject01.utils
 // 3) Como dispobilizar a classe IMPL
 // 4) Como usar na prática dentro do ViewModel
 expect interface CommonLogger {
-    open fun log(message: String)
+    open fun log(message: String, type: LogType)
 }
