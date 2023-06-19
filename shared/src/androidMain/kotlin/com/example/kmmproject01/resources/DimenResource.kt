@@ -44,6 +44,14 @@ actual class ScreenDimensResource actual constructor(
     val blendLimit: Float by lazy { defaultBlendLimit }
     val curveInset: Dp by lazy { defaultCurveInset.dp }
 }
+
+actual class CardDimensResource actual constructor(
+    private val defaultCornerRadius: Int,
+    private val defaultPadding: Int
+) {
+    val cornerRadius: Dp by lazy { defaultCornerRadius.dp }
+    val padding: Dp by lazy { defaultPadding.dp }
+}
 actual class SurfaceDimensResource actual constructor(
     private val roundedCornerUnit: Int){
     val roundedCorner: Dp by lazy { roundedCornerUnit.dp }

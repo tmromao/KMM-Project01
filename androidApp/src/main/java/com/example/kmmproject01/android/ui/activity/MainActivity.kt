@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -52,19 +53,21 @@ class MainActivity : ComponentActivity() {
             val hideThumbnail by model.hideThumbnail.collectAsState()
 
             AndroidAppTheme {
-                if (hideThumbnail) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Resources.Theme.background.getColor())
-                    )
-                } else{
+                Box(modifier = Modifier.navigationBarsPadding()){ // navigationBarsPadding() para evitar que o conteudo fique por baixo da barra de navegacao
+                    if (hideThumbnail) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Resources.Theme.background.getColor())
+                        )
+                    } else{
 
-                    // KtorVid(viewModel = entryViewModel)
-                    //CustomDialogVideo()
-                    //ModalBottomSheetVideo()
-                    //SplashWithLottieVid()
-                    NavigationVideo()
+                        // KtorVid(viewModel = entryViewModel)
+                        //CustomDialogVideo()
+                        //ModalBottomSheetVideo()
+                        //SplashWithLottieVid()
+                        NavigationVideo()
+                    }
                 }
 
             }

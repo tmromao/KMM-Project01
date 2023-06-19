@@ -29,6 +29,14 @@ actual class ScreenDimensResource actual constructor(
     val blendLimit: Double by lazy { defaultBlendLimit.toDouble() }
     val curveInset: Double by lazy { defaultCurveInset.toDouble() }
 }
+
+actual class CardDimensResource actual constructor(
+    private val defaultCornerRadius: Int,
+    private val defaultPadding: Int
+) {
+    val cornerRadius: Double by lazy { defaultCornerRadius.toDouble() }
+    val padding: Double by lazy { defaultPadding.toDouble() }
+}
 actual class ButtonDimensResource actual constructor(
     private val roundedCornerUnit: Int,
     private val minWidthUnit: Int,
