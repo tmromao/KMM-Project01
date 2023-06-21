@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentColor
@@ -14,12 +15,19 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,7 +56,7 @@ fun DefaultTextInputField(
 ) {
     CustomTextField(
         initialInput = initialInput,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        //keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         trailingIcon = { Icon(imageVector = Icons.Default.Error, contentDescription = null) },
         textFieldHint = textFieldHint,
         errorState = errorState,
@@ -57,10 +65,19 @@ fun DefaultTextInputField(
     )
 }
 
+// 1) Como obter o focus em campos de texto
+// 2) Como manipular o teclado virtual
+// 3) Como fechar o teclado ao pressionar enter
+// 4) Como alterar o tipo de teclado
+
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun CustomTextField(
     initialInput: String = "",
-    keyboardOptions: KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+    //keyboardOptions: KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+    keyboardType: KeyboardType = KeyboardType.Text,
+    imeAction: ImeAction = ImeAction.Done,
+    autofocus: Boolean = false,
     trailingIcon: @Composable (() -> Unit)? = null,
     textFieldHint: String = "",
     errorState: StateFlow<Boolean> = MutableStateFlow(false),
@@ -68,20 +85,41 @@ fun CustomTextField(
     onInputChanged: (input: String) -> Unit = {},
 ) {
 
+    val focusManager = LocalFocusManager.current
+    val focusRequester = remember { FocusRequester() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     val error by errorState.collectAsState()
     val errorType by errorTypeState.collectAsState()
     var input by remember { mutableStateOf(TextFieldValue(initialInput)) }
 
     return Column {
 
+        if (autofocus) {
+            LaunchedEffect(key1 = Unit){
+                focusRequester.requestFocus()
+            }
+        }
+
         OutlinedTextField(
             value = input,
             singleLine = true,
             isError = error,
-            modifier = Modifier.height(Resources.Dimen.textInputField.minHeight),
+            modifier = when(autofocus){
+                true -> Modifier
+                    .height(Resources.Dimen.textInputField.minHeight)
+                    .focusRequester(focusRequester)
+                else -> Modifier
+                    .height(Resources.Dimen.textInputField.minHeight)
+            },
             shape = RoundedCornerShape(Resources.Dimen.textInputField.roundCorner),
             trailingIcon = if (error) trailingIcon else null,
-            keyboardOptions = keyboardOptions,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+            keyboardActions = KeyboardActions {
+                keyboardController?.hide()
+                focusManager.clearFocus()
+                onInputChanged(input.text)
+            },
             onValueChange = {
                 input = it
                 onInputChanged(it.text)
