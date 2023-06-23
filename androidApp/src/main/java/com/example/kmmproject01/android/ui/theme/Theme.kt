@@ -42,7 +42,8 @@ fun AndroidAppTheme(
             secondary = Resources.Theme.secondary.getColor(),
         )
     }
-    val typography = Typography(
+
+/*    val typography = Typography(
         body1 = TextStyle(
             fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Normal,
@@ -50,7 +51,8 @@ fun AndroidAppTheme(
         ),
         //Aqui especificaria os meus ex.
         // h0 = TextStyles.h0,
-    )
+    )*/
+
     val shapes = Shapes(
         small = RoundedCornerShape(4.dp),
         medium = RoundedCornerShape(4.dp),
@@ -59,7 +61,7 @@ fun AndroidAppTheme(
 
     MaterialTheme(
         colors = colors, // Colors that i have defined in the Resources file, shared on both platforms
-        typography = typography,
+        typography = typography, // Usar custom typography aqui! (definida em Type.kt)
         shapes = shapes,
         content = content
     )
