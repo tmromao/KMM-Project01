@@ -9,6 +9,6 @@ import com.russhwolf.settings.SharedPreferencesSettings
 // Creates a shared prefs with name: {context.getPackageName() + "_preferences"} AND MODE_PRIVATE
 val delegate: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(AndroidMainApp.applicationContext)
 
-actual fun getSettings(): Settings? {
+actual fun getSettings(): Settings {
     return SharedPreferencesSettings(delegate)
 }

@@ -40,7 +40,6 @@ object DI {
 
         return when(T::class) {
             Environment::class -> lazy { environment as T }
-            SettingsService::class -> lazy { AppSettings() as T }
             else -> throw IllegalArgumentException("Dependency not found! Specify class \"${T::class.qualifiedName}\" in DI.inject()")
         }
     }
@@ -48,7 +47,10 @@ object DI {
     // USADO PARA INJECAO DE DEPENDENCIAS APENAS NO COMMON E
     // LIMITAR ACESSO DOS APPS ATRAVES DAS INTERFACES
     internal inline fun <reified T> injectInternal(): Lazy<T> {
-        return lazy { inject<T>().value }
+        return when(T::class) {
+            SettingsService::class -> lazy { AppSettings() as T }
+            else -> throw IllegalArgumentException("Dependency not found! Specify class \"${T::class.qualifiedName}\" in DI.inject()")
+        }
     }
 
     // for Android preview [see DependencyInjectionForPreview] and testing later on

@@ -6,5 +6,6 @@ import platform.Foundation.NSUserDefaults
 
 val delegate: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 // Francisco explica que o ? nao resulta no iOS!??
-actual fun getSettings(): Settings? = NSUserDefaultsSettings(delegate)
+//actual fun getSettings(): Settings? = NSUserDefaultsSettings(delegate)
+actual fun getSettings(): Settings = NSUserDefaultsSettings(delegate)
 
