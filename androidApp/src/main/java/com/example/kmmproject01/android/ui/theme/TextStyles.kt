@@ -100,7 +100,7 @@ abstract class TextStyleDefinitions(
             lineHeight = fontSizing.lineHeight
         )
 
-        private  fun minOf(a: TextU nit, b: TextUnit): TextUnit {
+        private  fun minOf(a: TextUnit, b: TextUnit): TextUnit {
             return if (a > b) b else a
         }
     }

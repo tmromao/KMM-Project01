@@ -8,10 +8,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -20,26 +24,49 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.graphics.ColorUtils
 import androidx.navigation.NavHostController
 import com.example.kmmproject01.android.DependencyInjectionForPreview
+import com.example.kmmproject01.android.ui.components.LanguagePickerBottomSheet
+import com.example.kmmproject01.android.ui.components.SmallButton
 import com.example.kmmproject01.android.ui.components.Spacer
 import com.example.kmmproject01.android.ui.headers.TopLevelHeader
 import com.example.kmmproject01.android.ui.theme.AndroidAppTheme
 import com.example.kmmproject01.android.ui.theme.TextStyles
 import com.example.kmmproject01.resources.Resources
+import com.example.kmmproject01.viewmodels.LanguagePickerViewModel
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun HomeScreen(
-    navController: NavHostController
+    navController: NavHostController,
 ) {
-    HomeScreen(
-        onLoginClick = { },
-        onProfileClick = { }
-    )
+
+    val sheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+
+    val coroutineScope = rememberCoroutineScope()
+    val onLanguageButtonAction = {
+        coroutineScope.launch {
+            if (sheetState.isVisible) sheetState.hide() else sheetState.show()
+        }
+    }
+
+    LanguagePickerBottomSheet(
+        viewModel = LanguagePickerViewModel(),
+        sheetState = sheetState
+    ) {
+        HomeScreen(
+            onLoginClick = { },
+            onProfileClick = { },
+            onSelectLangClick = { onLanguageButtonAction() }
+        )
+    }
+
 }
 
 @Composable
 fun HomeScreen(
     onLoginClick: () -> Unit,
-    onProfileClick: () -> Unit
+    onProfileClick: () -> Unit,
+    onSelectLangClick: () -> Unit
 ) {
     val screenState = ScreenState(rememberScrollState())
 
@@ -63,6 +90,7 @@ fun HomeScreen(
                     TextButton(onClick = onProfileClick) {
                         Text(text = "Perfil", color = textColor)
                     }
+                    SmallButton(text = "idioma", onClick = onSelectLangClick)
                 }
             )
         },
@@ -76,7 +104,7 @@ fun HomeScreen(
 
 @Composable
 fun HomeContent(
-    scrollState: ScrollState
+    scrollState: ScrollState,
 ) {
     BaseScreenContent(
         scrollState = scrollState,
@@ -141,6 +169,6 @@ fun getLoremIpsumShort(): String {
 fun DefaultPreview() {
     DependencyInjectionForPreview()
     AndroidAppTheme {
-        HomeScreen({}, {})
+        HomeScreen({}, {},{})
     }
 }

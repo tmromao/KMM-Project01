@@ -2,7 +2,11 @@ package com.example.kmmproject01.di
 
 
 import com.example.kmmproject01.di.DI.Native.environment
+import com.example.kmmproject01.di.DI.Native.lokaliseSdk
 import com.example.kmmproject01.di.FakeDI
+import com.example.kmmproject01.localization.Localization
+import com.example.kmmproject01.localization.LocalizationService
+import com.example.kmmproject01.localization.LokaliseSdk
 
 import com.example.kmmproject01.network.Environment
 import com.example.kmmproject01.settings.AppSettings
@@ -28,18 +32,21 @@ import kotlin.native.concurrent.ThreadLocal
 object DI {
 
     @ThreadLocal
-    object Native{
+    object Native {
         //1)
         lateinit var environment: Environment //2) initialized in MainApplication/UIApplicationDelegate
+
         // TODO: Add more dependencies here
+        lateinit var lokaliseSdk: LokaliseSdk
     }
 
     // PARA INJETAR NOS VIEWMODELS, REPOSITORIES, APPS OU ONDE SEJA PRECISO
     inline fun <reified T> inject(): Lazy<T> {
         // 3)
 
-        return when(T::class) {
+        return when (T::class) {
             Environment::class -> lazy { environment as T }
+            LokaliseSdk::class -> lazy { lokaliseSdk as T }
             else -> throw IllegalArgumentException("Dependency not found! Specify class \"${T::class.qualifiedName}\" in DI.inject()")
         }
     }
@@ -47,7 +54,8 @@ object DI {
     // USADO PARA INJECAO DE DEPENDENCIAS APENAS NO COMMON E
     // LIMITAR ACESSO DOS APPS ATRAVES DAS INTERFACES
     internal inline fun <reified T> injectInternal(): Lazy<T> {
-        return when(T::class) {
+        return when (T::class) {
+            LocalizationService::class -> lazy { Localization() as T }
             SettingsService::class -> lazy { AppSettings() as T }
             else -> throw IllegalArgumentException("Dependency not found! Specify class \"${T::class.qualifiedName}\" in DI.inject()")
         }

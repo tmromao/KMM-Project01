@@ -6,6 +6,7 @@ import com.example.kmmproject01.android.BuildConfig
 import com.example.kmmproject01.di.DI
 import com.example.kmmproject01.network.Environment
 import com.example.kmmproject01.utils.AndroidMainApp
+import com.example.kmmproject01.android.localization.LocaliseSdkWrapper
 
 class MainApplication : Application() {
 
@@ -14,6 +15,7 @@ class MainApplication : Application() {
         base?.let {
             // inject the application context into android main
             AndroidMainApp.applicationContext = it
+            DI.Native.lokaliseSdk = LocaliseSdkWrapper(it)
         }
         setEnvironment()
     }

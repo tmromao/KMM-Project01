@@ -82,6 +82,9 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
 
+    // LOKALISE
+    implementation(Translation.lokaliseSdk)
+
     // ADOBE
     implementation(Adobe.core)
     implementation(Adobe.sdkCore)
